@@ -1,49 +1,63 @@
 const { Schema, model } = require('mongoose');
+const { text } = require('stream/consumers');
 
 const TeacherSchema = new Schema({
   name: {
     type: String,
-    required: true
+    minlength: 2,
+    maxlength: 50,
+    required: true,
+    trim: true
   },
-  image: {
-    type: image,
-    required: true
-  },
+
+  // image: {
+  //   type: text,
+  //   required: true
+  // },
   dateOfBirth: {
     type: Date,
-    required: true
+    // required: true
   },
-  phone: {
-    type: Number,
-    required: true
-  },
-  address: {
-    type: String,
-    required: true
-  },
-  staffId: {
-    type: Number,
-    required: true
-  },
-  subject: {
-    type: Array
-  },
+  // phone: {
+  //   type: Number,
+  //   required: true
+  // },
+  // address: {
+  //   type: String,
+  //   required: true
+  // },
+  // staffId: {
+  //   type: Number,
+  //   required: true
+  // },
+  // subject: {
+  //   type: Array
+  // },
   designation: {
-    type: String
+    type: String,
+    minlength: 2,
+    maxlength: 15,
+    required: true,
+    trim: true
   },
+
   dateOfJoining: {
     type: Date,
-    required: true
+    default: Date.now()
   },
-  dateOfLeaving: {
+
+  dateOfLeaving:{
     type: Date,
+    default: Date.now()
   },
+
   assignedHouse: {
     type: String,
   },
-  documents: {
-    type: document
-  },
+
+  // documents: {
+  //   type: text
+  // },
   isHouseMaster: {
     type: Boolean,
     default: false,
