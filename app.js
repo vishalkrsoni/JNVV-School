@@ -17,7 +17,7 @@ mongo_connector()
 app.use(express.json())
 // app.use(cookieParser())
 
-app.use('/', teacherRouter)
-// app.use('/', studentRouter)
+app.use('/teacher', teacherRouter)
+app.use('/student', studentRouter)
 
 app.listen(port, () => console.log(`server started at port ${port}`))

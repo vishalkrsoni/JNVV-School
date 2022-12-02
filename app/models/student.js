@@ -1,56 +1,70 @@
 // import { Schema, model } from 'mongoose';
 const { Schema, model } = require('mongoose');
+const { ObjectId } = Schema.Types;
+
 
 const StudentSchema = new Schema({
   name: {
     type: String,
     required: true
   },
-  image: {
-    type: image,
-    required: true
+  // image: {
+  //   type: image,
+  //   required: true
 
-  },
+  // },
   dateOfBirth: {
     type: Date,
-    require: true
+    // require: true
   },
-  parents: {
-    type: Object,
-    fathersName: '',
-    mothersName: ''
-
+  gender:{
+    type: String,
+    enum: ['Male', 'Female'],
   },
+  siblings: [{
+    isMarried: Boolean,
+    isMale: Boolean,
+    isElder: Boolean,
+  }],
+  
+  parents : [{
+    type: ObjectId,
+    ref: 'Family',
+  }],
   rollNumber: {
     type: Number,
-    required: true
+    // required: true
   },
   currentClass: {
     type: Number,
-    required: true
+    // required: true
+  },
+  subjects: {
+    type: Array,
+    default: []
   },
   address: {
     type: String,
-    required: true
+    // required: true
   },
   dateOfJoining: {
     type: Date,
-    required: true
+    // required: true
   },
   dateOfLeaving: {
     type: Date
   },
   assignedHouse: {
     type: String,
-    required: true
+    // required: true
   },
   isHouseCaptain: {
     type: Boolean,
-    default: false,
+    // default: false,
   },
   isSchoolCaptain: {
     type: Boolean,
-    default: false,
+    // default: false,
   },
   reportCard: {
 

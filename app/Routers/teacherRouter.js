@@ -16,12 +16,12 @@ const teacherRouter = Router()
 // teacherRouter.use(authMiddleware)
 
 // general routes
-teacherRouter.get('/teacher', getTeacher)
-teacherRouter.get('/teacher/:staffId', getTeacherById)
+teacherRouter.get('/', getTeacher)
+teacherRouter.get('/:staffId', getTeacherById)
 
 // verified Routes
-teacherRouter.post('/teacher', addTeacher)
-teacherRouter.put('/teacher:staffId', updateTeacher)
-teacherRouter.delete('/teacher:staffId', deleteTeacher)
+teacherRouter.post('/', addTeacher)
+teacherRouter.put('/:staffId', updateTeacher)
+teacherRouter.delete('/:staffId', deleteTeacher)
 
 module.exports = teacherRouter

@@ -61,6 +61,7 @@ const addTeacher = async (req, res) => {
 const updateTeacher = async (req, res) => {
   const { staffId } = req.params
   const updatedData = req.body
+  console.log(staffId,updatedData)
   try {
     const updatedTeacher = await Teacher.findByIdAndUpdate(staffId, updatedData, { new: true, runValidators: true })
     res.send({
